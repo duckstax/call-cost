@@ -1,0 +1,9 @@
+[requires]
+sol2/3.2.3
+pybind11/2.6.0
+
+[options]
+
+
+[generators]
+cmake
