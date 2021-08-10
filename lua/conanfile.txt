@@ -1,0 +1,6 @@
+[requires]
+sol2/3.2.3
+benchmark/1.5.3
+
+[generators]
+cmake
