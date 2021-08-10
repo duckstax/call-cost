@@ -5,7 +5,7 @@
 #include <string>
 #include <chrono>
 
-struct data {
+struct data final {
   uint32_t id;
   std::string name;
   std::string last_name;
