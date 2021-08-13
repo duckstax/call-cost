@@ -60,7 +60,7 @@ file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/script.lua DESTINATION ${CMAKE_CURRENT_BIN
 
 find_package( Threads )
 
-add_executable(bench_lua main.cpp)
+add_executable(bench_lua lua.cpp)
 
 target_link_libraries (
         bench_lua
@@ -71,6 +71,25 @@ target_link_libraries (
 
 target_include_directories(
         bench_lua
+        PRIVATE
+        ${CONAN_LIBS}
+)
+
+include_directories(SYSTEM ${CONAN_INCLUDE_DIRS})
+include_directories(${PYTHON_INCLUDE_DIR})
+
+add_executable(bench_python python.cpp)
+
+target_link_libraries (
+        bench_python
+        PRIVATE
+        ${CMAKE_THREAD_LIBS_INIT}
+        ${CONAN_LIBS}
+        pybind11::embed
+)
+
+target_include_directories(
+        bench_python
         PRIVATE
         ${CONAN_LIBS}
 )
